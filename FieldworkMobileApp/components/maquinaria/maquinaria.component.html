@@ -1,0 +1,16 @@
+<div class="proyecto">
+    <div  class="item">
+      <ion-label slot="start"  class="info ot">
+        <strong>{{ maquinaria1.Maquinaria }} # {{ maquinaria1.NumeroRegistro }}</strong>
+        <ion-text color="medium">Tramo: {{ maquinaria1.NombreTramo }}</ion-text><br />
+        <ion-text color="medium">Act: {{ maquinaria1.DescripcionTipoTrabajo }}</ion-text><br />
+      </ion-label>
+      <div lass="metadata-end-wrapper" slot="end">
+        <ion-label class="info notificacion right-align">
+         <b>Planificada: {{ maquinaria1.HorasProgramadas}} hr</b><br/>
+         <b>Pendiente: {{ horasPendiente }} hr</b><br/>
+         <b>Avance: {{ maquinaria1.TotalHorasEjecutada}} hr</b>  
+        </ion-label>
+      </div> 
+    </div> 
+</div>

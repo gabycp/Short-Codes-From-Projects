@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()"><ion-icon name="close-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="end" *ngIf="reporteavance.IdAvanceMaquinariaM > 0">
+      <ion-button (click)="deleteHoras(reporteavance.IdAvanceMaquinariaM)"><ion-icon name="trash" color="danger"></ion-icon></ion-button>
+    </ion-buttons> -->
+    <ion-title class="colorB centrar"><b>Orden Especial</b></ion-title>         
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="content-principal">
+  <ion-header class="ion-no-border">
+    <ion-toolbar class="second-header">
+    
+      <ion-title class="second-header-title"><b>Comprobante</b></ion-title>
+      
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+    <ion-grid>
+      <ion-row>
+      <ion-col size="12">     
+        <ion-item>
+          <ion-label><b>Número de Deposito</b></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="this.ordenEspecial.NumeroDeposito" 
+          fill="outline" placeholder=""></ion-input>
+        </ion-item>
+      </ion-col> 
+      <ion-col size="12">     
+        <ion-item>
+          <ion-label><b>Fecha</b></ion-label>
+          <ion-datetime-button  datetime="datetimeEmision" displayFormat="DD-MMMM-YYYY" 
+                pickerFormat="DD MM YYYY" locale="es-ES" presentation="date">
+                </ion-datetime-button>
+
+                <ion-modal [keepContentsMounted]="true">
+                  <ng-template>
+                    <ion-datetime #datetime [(ngModel)]="ordenEspecial.Fecha" id="datetimeEmision" [max]="maxDate" displayFormat="DD-MMMM-YYYY"
+                     pickerFormat="DD MM YYYY" locale="es-ES" presentation="date" required>
+                     <ion-button color="primary" (click)="datetime.confirm()">Ok</ion-button>
+                    </ion-datetime>
+                  </ng-template>
+                </ion-modal>
+        </ion-item>
+      </ion-col> 
+      <ion-col size="12">     
+        <ion-item>
+          <ion-label><b>Monto</b></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="this.ordenEspecial.Monto" 
+          fill="outline" placeholder="0.00"
+          inputmode="numeric"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label><b>Banco</b></ion-label></ion-item>
+        <ion-item>         
+          <ion-select fill="outline"
+          aria-label="Bancos" 
+          (ionChange)="handleChangeBanco($event)" 
+          [(ngModel)] = "this.ordenEspecial.IdBanco"
+          required>
+          <ion-select-option *ngFor="let banco of listBancos" [value]="banco.IdBanco">{{ banco.DescripcionBanco }}</ion-select-option>
+        </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label><b>Comprobante / Recibo</b></ion-label>
+        </ion-item>
+      </ion-col> 
+    </ion-row> 
+    <app-photo [fotografiaGuardada]="this.fotografiaNueva" (photoTaken)="handlePhotoTaken($event)"></app-photo>
+    </ion-grid>
+
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button [strong]="true"
+          type="submit"
+          expand="full"
+          (click)="guardarOrdenEspecial()">Registrar Orden Especial</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>  
+    
+      
+    
+
+  </ion-content>
+
+</ion-content>

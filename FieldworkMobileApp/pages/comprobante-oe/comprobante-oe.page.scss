@@ -1,0 +1,56 @@
+.content-principal
+{
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.colorB
+{
+    color: #8C5B30;
+}
+
+ion-segment-button {
+  white-space: normal !important;
+}
+
+.centrar
+{
+    text-align: center;
+}
+
+.second-header-title {
+    text-align: center; /* Centrar el título */
+    margin-top: 2%;
+
+    border-bottom: 2px solid #000; /* Color y estilo de la línea, ajusta según tus necesidades */
+    padding-bottom: 5px; /* Espaciado opcional debajo del título */
+    margin-bottom: 10px;
+    margin-left: 3%;
+    margin-right: 3%;
+    
+  }
+
+  ion-toolbar, ion-header, ion-buttom {
+    --min-height: 60px!important;
+   }
+
+   .second-header
+   {
+     margin-top: 5%;
+   }
+ 
+   ion-button
+   {
+     --background: #6c4c2c;
+     --background-hover: #bda082;
+     --background-activated: #ab875f;
+     --background-focused: #ab875f;
+      
+     width: 100%;
+   }
+ 
+   ion-input
+   {
+    text-align: center;
+   }
+   
